@@ -17,6 +17,7 @@ The repository is structured to be clean and focused on the source code.
 
 ```
 Token-Estimator/
+├── Data Analysis
 ├── src/
 │   ├── analysis/
 │   │   └── analysis_plots.py
