@@ -16,7 +16,7 @@ This project provides a command-line interface (CLI) tool to estimate the number
 The repository is structured to be clean and focused on the source code.
 
 ```
-token-estimator/
+Token-Estimator/
 ├── src/
 │   ├── analysis/
 │   │   └── analysis_plots.py
