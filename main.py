@@ -1,17 +1,13 @@
 import argparse
 import os
-
-# Import functions from the src package
 from src.training import train_univariate, train_multivariate
 from src.analysis.analysis_plots import DataMining
 from src.utils import shuffle_and_track_data, analyze_symbol_percentage_distribution
 
 def main():
     parser = argparse.ArgumentParser(description="Token Estimator Project CLI")
-    parser.add_argument('--data-dir', type=str, default='data/raw/shuffled_data', 
-                        help='Directory containing the Parquet dataset files.')
+    parser.add_argument('--data-dir', type=str, default='data/raw/shuffled_data', help='Directory containing the Parquet dataset files.')
     
-    # subparsers for different actions
     subparsers = parser.add_subparsers(dest='action', help='Available actions', required=True)
 
     # Parser for training
@@ -26,24 +22,19 @@ def main():
     parser_analyze.add_argument('plot_type', choices=['lang_comp', 'punc_hist', 'symbol_dist'], help='Type of plot to generate')
     
     # Parser for data shuffling
-    # Note: The shuffle function expects a specific input structure.
     parser_shuffle = subparsers.add_parser('shuffle', help='Shuffle raw data files')
     parser_shuffle.add_argument('--base-path', type=str, default='data/raw', help='Base path containing the original merged parquet files.')
 
-
     args = parser.parse_args()
 
-    # --- Create necessary directories ---
     os.makedirs("results/univariate_regression/plots", exist_ok=True)
     os.makedirs("results/multivariate_regression/plots", exist_ok=True)
     os.makedirs("saved_models/univariate_regression", exist_ok=True)
     os.makedirs("saved_models/multivariate_regression", exist_ok=True)
 
-    # --- Generate file paths based on the data directory ---
     file_names = [f"shuffled_merged_{i}.parquet" for i in range(1, 11)]
     file_paths = [os.path.join(args.data_dir, file) for file in file_names]
 
-    # --- Execute Actions ---
     if args.action == 'shuffle':
         print(f"Shuffling data from base path: {args.base_path}")
         shuffle_and_track_data(base_data_path=args.base_path, random_seed=42)
