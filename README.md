@@ -45,7 +45,8 @@ Follow these steps to set up and run the project locally.
 First, clone the project from GitHub:
 ```bash
 git clone https://github.com/M-Mahdi-Razmjoo/Token-Estimator.git
-cd Token-Estimator```
+cd Token-Estimator
+```
 
 ### 2. Create and Activate a Virtual Environment
 Using a virtual environment is highly recommended to manage project dependencies in isolation.
@@ -64,7 +65,8 @@ Using a virtual environment is highly recommended to manage project dependencies
   ```
 
 ### 3. Install Dependencies
-Install all required libraries using the `requirements.txt` file:```bash
+Install all required libraries using the `requirements.txt` file:
+```bash
 pip install -r requirements.txt
 ```
 
